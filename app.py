@@ -29,12 +29,12 @@ def toss_coin(n): # function that emulates the coin toss
 # adding the slider and button to the program:
 number_of_trials = st.slider('Number of try?', 1, 1000, 10)
 
-
 start_button = st.button('Run')
 
 if start_button:
     st.write(f'Executing the experiment with {number_of_trials} tryes.')
-
+    mean = toss_coin(number_of_trials)
+    
 
 
 
