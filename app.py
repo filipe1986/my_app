@@ -1,7 +1,14 @@
+import pandas as pd
 import scipy.stats
 import streamlit as st
 import time
 
+# these are persistent variables preserved while the Sreamlin runs again this script
+if 'experiment_no' not in st.session_state:
+    st.session_state['experiment_no'] = 0
+
+if 'df_experiment_results' not in st.session_state:
+    st.session_state['df_experiment_results'] = pd.DataFrame(columns = ['no', 'iterations', 'mean'])
 
 st.header('Flipping a coin')
 
@@ -19,7 +26,6 @@ def toss_coin(n): # function that emulates the coin toss
         if r == 1:
             outcome_1_count += 1
         mean = outcome_1_count / outcome_no
-
         chart.add_rows([mean])
         time.sleep(0.05)
     
